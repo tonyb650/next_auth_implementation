@@ -1,7 +1,7 @@
 'use server'
 
-import { LoginSchema, RegisterSchema } from "@/schemas"
-import { revalidatePath, revalidateTag } from "next/cache"
+import { RegisterSchema } from "@/schemas"
+// import { revalidatePath, revalidateTag } from "next/cache"
 import z from "zod"
 import bcrypt from 'bcrypt'
 import prisma from "@/lib/prisma"

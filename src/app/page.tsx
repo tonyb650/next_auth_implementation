@@ -9,7 +9,7 @@ const poppins =  Poppins({
   weight: ["600"],
 })
 
-console.log(poppins.className)
+// console.log(poppins.className)
 export default function Home() {
   return (
     <main className="flex h-full flex-col items-center justify-center bg-radial-[at_50%_00%] from-sky-400 to-blue-800">
