@@ -4,6 +4,16 @@ import { apiAuthPrefix, authRoutes, DEFAULT_LOGIN_REDIRECT, publicRoutes } from 
 
 const {auth} = NextAuth(authConfig)
 
+/*
+  About: MIDDLEWARE IN NEXT AUTH 
+  This is a special method in NextJS and 'config' is a special const in NextJS
+  
+  So far:
+  It appears that middleware is our way of protecting routes.
+  If we simply return null, then things continue unhindered.
+  If we return a Response.redirect then we make the route private.
+*/
+
 export default auth((req) => {
   const {nextUrl} = req
   console.log("***MIDDLEWARE***   nextUrl = "+ nextUrl)
