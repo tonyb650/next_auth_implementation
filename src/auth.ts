@@ -1,6 +1,6 @@
-import NextAuth, { DefaultSession, NextAuthConfig } from "next-auth";
-import authConfig from "./auth.config";
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import NextAuth, { NextAuthConfig } from "next-auth";
+import authConfig from "./auth.config";
 import prisma from "./lib/prisma";
 import { getUserById } from "./services/user";
 
@@ -8,6 +8,18 @@ import { getUserById } from "./services/user";
 
 
 const config: NextAuthConfig = {
+  pages: {
+    signIn: "/auth/login",
+    error: "/auth/error",
+  },
+  events: {
+    async linkAccount({user}) {
+      await prisma.user.update({
+        where: { id: user.id},
+        data: { emailVerified: new Date()}
+      })
+    }
+  },
   callbacks: {
     // async signIn({user}) {
     //   const existingUser = await getUserById(user.id)
@@ -41,6 +53,7 @@ const config: NextAuthConfig = {
   session: {strategy: "jwt"},
   ...authConfig
 }
+
 const nextAuth = NextAuth(config)
 const handlers = nextAuth.handlers
 const GET = handlers.GET
@@ -48,7 +61,8 @@ const POST = handlers.POST
 const auth = nextAuth.auth
 const signIn = nextAuth.signIn
 const signOut = nextAuth.signOut
-export { GET, POST, auth, signIn, signOut}
+
+export { auth, GET, POST, signIn, signOut };
 
 
 /*

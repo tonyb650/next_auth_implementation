@@ -1,3 +1,9 @@
+
+
+/***************************************/
+/* These are consumed by middleware.ts */
+/***************************************/
+
 /**
  * An array of routes that are accessible to the public
  * These routes do not require authentication
@@ -13,6 +19,7 @@ export const publicRoutes: string[] = [
 export const authRoutes: string[] = [
   "/auth/login",
   "/auth/register",
+  "/auth/error",
 ]
 
 /**
