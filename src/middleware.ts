@@ -36,6 +36,8 @@ export default auth((req) => {
     return null
   }
 
+  // where does confirm-email go ??? private ?
+
   if (!isLoggedIn && !isPublicRoute) {  // <-- Trying to access private route when not logged in
     console.log("Attempting to access private route when not logged in")
     return Response.redirect(new URL("/auth/login" ,nextUrl))

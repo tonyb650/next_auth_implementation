@@ -21,14 +21,16 @@ const config: NextAuthConfig = {
     }
   },
   callbacks: {
-    // async signIn({user}) {
-    //   const existingUser = await getUserById(user.id)
+    signIn : async function ({user, account}) {
+      if (account?.provider !== "credentials") return true
+      
+      const existingUser = await getUserById(user.id)
+      if (existingUser && existingUser.emailVerified) return true
 
-    //   if (!existingUser || !existingUser.emailVerified) {
-    //     return false
-    //   }
-    //   return true
-    // },
+      // TODO Add 2FA check
+
+      return false
+    },
     async jwt({token}) {
 
       if (!token.sub) return token

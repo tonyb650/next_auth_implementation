@@ -6,6 +6,8 @@ import z from "zod"
 import bcrypt from 'bcrypt'
 import prisma from "@/lib/prisma"
 import { getUserByEmail } from "@/services/user"
+import { generateVerificationToken } from "@/lib/tokens"
+import { sendVerificationEmail } from "@/lib/email"
 
 
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
@@ -16,14 +18,13 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
   }
 
   const {email, password, name} = validatedFields.data
-
-  const hashedPassword = await bcrypt.hash(password, 10)
-
   const existingUser = await getUserByEmail(email)
-
+  
   if (existingUser) {
     return {error: "Email already in use!"}
   }
+  
+  const hashedPassword = await bcrypt.hash(password, 10)
 
   await prisma.user.create({
     data: {
@@ -31,7 +32,8 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
     }
   })
 
-  // TODO: send verification token email
-  
-  return { success: "User Created!"}
+  const verificationToken = await generateVerificationToken(email)
+  await sendVerificationEmail(verificationToken.email, verificationToken.token)
+
+  return { success: "Confirmation email sent!"}
 }

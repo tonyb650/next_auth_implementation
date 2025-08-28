@@ -1,9 +1,12 @@
-import {LoginForm} from '@/components/auth/login-form'
-import React from 'react'
+import {LoginForm} from '@/components/auth/LoginForm'
+import React, { Suspense } from 'react'
 
 const LoginPage = () => {
   return (
-    <LoginForm/>
+    <Suspense>
+      {/* Suspense is needed in the case of 'useSearchParams' in the LoginForm */}
+      <LoginForm/>
+    </Suspense>
   )
 }
 
