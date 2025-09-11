@@ -13,6 +13,7 @@ import FormError from "../FormError";
 import FormSuccess from "../FormSuccess";
 import { login } from "@/actions/login";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 export const LoginForm = () => {
   const searchParams = useSearchParams()
@@ -73,6 +74,12 @@ export const LoginForm = () => {
                   <FormControl>
                     <Input disabled={isPending} {...field} placeholder="********" type="password"/>
                   </FormControl>
+                  {/* "use 'asChild' so the button properly uses the link inside */}
+                  <Button size="sm" asChild variant='link' className="px-0 font-normal"> 
+                    <Link href="/auth/reset">
+                      Forgot Password?
+                    </Link>
+                  </Button>
                   <FormMessage/>
                 </FormItem>
               )}
