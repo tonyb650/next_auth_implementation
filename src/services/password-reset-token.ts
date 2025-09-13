@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma"
 export const getPasswordResetTokenByToken = async (token: string) => {
   try {
     const passwordResetToken = await prisma.passwordResetToken.findUnique({
-      where: { id: token}
+      where: {token}
     })
     return passwordResetToken
   } catch {
