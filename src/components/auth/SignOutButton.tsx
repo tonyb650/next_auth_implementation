@@ -1,15 +1,17 @@
-"use client"
-import { Button } from '@/components/ui/button'
-import { signOut } from '@/auth'
+'use client'
 
-const SignOutButton = () => {
+import { PropsWithChildren } from "react"
+import { logout } from "@/actions/logout"
+
+const SignOutButton = ({ children }: PropsWithChildren) => {
+  const onClick = () => {
+    logout()
+  }
+
   return (
-    <Button
-      type="button"
-      onClick={() => signOut()}
-    >
-      Sign Out
-    </Button>
+    <span onClick={onClick} className="cursor-pointer">
+      {children}
+    </span>
   )
 }
 

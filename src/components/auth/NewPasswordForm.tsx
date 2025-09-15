@@ -1,6 +1,5 @@
 "use client";
 
-import { reset } from "@/actions/reset";
 import CardWrapper from "@/components/auth/CardWrapper";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,7 +11,7 @@ import {
   FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { NewPasswordSchema, ResetSchema } from "@/schemas";
+import { NewPasswordSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";

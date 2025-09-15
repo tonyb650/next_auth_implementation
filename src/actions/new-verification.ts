@@ -3,7 +3,6 @@
 import prisma from "@/lib/prisma"
 import { getUserByEmail } from "@/services/user"
 import { getVerificationTokenByToken } from "@/services/verification-token"
-import { success } from "zod"
 
 export const newVerification = async (token: string) => {
 
