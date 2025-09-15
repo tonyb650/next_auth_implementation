@@ -6,7 +6,7 @@ const globalForPrisma = global as unknown as {
 
 const prisma = globalForPrisma.prisma || new PrismaClient()
 console.log("Creating Prisma")
-console.log("process.env.NODE_ENV !== 'production' = "+ process.env.NODE_ENV !== 'production')
+console.log("process.env.NODE_ENV !== 'production' = "+ (process.env.NODE_ENV !== 'production'))
 console.log("Done")
 
 //if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
