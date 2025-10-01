@@ -28,11 +28,12 @@ const config: NextAuthConfig = {
       if (! existingUser?.emailVerified) return false
       
       if (existingUser?.isTwoFactorEnabled) {
+        // TODO instead of this, we can add an expires field to the TwoFactorConfirmation model so that the confirmation only needs to be done every x days
         const twoFactorConfirmation =  await getTwoFactorConfirmationByUserId(existingUser.id)
         
         if (!twoFactorConfirmation) return false
-
-        await prisma.twoFactorConfirmation.delete({where: {id: twoFactorConfirmation.id}})
+        
+        await prisma.twoFactorConfirmation.delete({where: {id: twoFactorConfirmation.id}}) 
       }
       
       return true
