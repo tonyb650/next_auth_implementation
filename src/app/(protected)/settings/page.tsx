@@ -1,22 +1,24 @@
-import { auth } from '@/auth'
-import SignOutButton from '@/components/auth/SignOutButton'
+'use client'
 
-const SettingsPage = async () => {
-  const session = await auth()
+// import { auth } from '@/auth'
+import SignOutButton from '@/components/auth/SignOutButton'
+import { Button } from '@/components/ui/button'
+import useCurrentUser from '@/hooks/useCurrentUser'
+// import { useSession } from 'next-auth/react' <-- import for 'client' useSession
+
+const SettingsPage = () => {
+  // const session = await auth() <-- This is how you get 'session' in server component
+  // const session = useSession() <-- This is how you get 'session' in client component
+  const user = useCurrentUser() // <-- This is our little helper hook
 
   return (
-    <div>
-      {JSON.stringify(session)}
-      {/* <form onSubmit={async () => {
-        'use server'
-        console.log("Attempting SignOut")
-        const response = await signOut({redirectTo: "/auth/login"})
-        console.log(response)
-      }}> 
-        <Button type="submit">Sign Out</Button>
-      </form> */}
+    <div className='bg-white p-10 rounded-xl'>
+
+
       <SignOutButton>
-        button2
+        <Button>
+          Sign Out
+        </Button>
       </SignOutButton>
     </div>
 

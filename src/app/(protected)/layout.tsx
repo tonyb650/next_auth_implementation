@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
 import { SessionProvider } from "next-auth/react";
+import Navbar from "./_components/Navbar";
 
 const ProtectedLayout = async ({
   children
@@ -10,7 +11,10 @@ const ProtectedLayout = async ({
 
   return (
     <SessionProvider session={session}>
-      {children}
+      <div className="h-full w-full flex flex-col gap-y-10 items-center justify-center bg-radial-[at_50%_00%] from-sky-400 to-blue-800">
+        <Navbar/>
+        {children}
+      </div>
     </SessionProvider>
   );
 }
