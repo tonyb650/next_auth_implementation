@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Join Event Animation][join-event-animation]
+![Login screenshot][login-screenshot]
 
 
 
@@ -56,11 +56,11 @@
 
 
 ### Built With
-
-* [![React][React.js]][React-url]
-* [![TailwindCSS][TailwindCSS.com]][Tailwind-url]
-* [![Express][ExpressJS.com]][Express-url]
-* [![MongoDB][MongoDB.com]][Mongo-url]
+[![NextJS][Next.js]][NextJS-url]\
+[![AuthJS][Auth.js]][AuthJS-url]\
+[![TailwindCSS][TailwindCSS.com]][Tailwind-url]\
+[![PostgreSQL][PostgreSQL.com]][PostgreSQL-url]\
+[![Neon][Neon.com]][Neon-url]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -120,17 +120,10 @@ Node and NPM are required.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-### Adding Events
-![Add Event Animation][add-event-animation]
-### Chat About Events
-![Event Chat Animation][event-chat-animation]
-### View Event Details
-![Event Details Screen Shot][event-details-screenshot]
-### Search Events
-![Search Events Animation][search-events-animation]
-### User Registration and Login
-![User Login Screen Shot][user-login-screenshot]
-![User Register Screen Shot][user-register-screenshot]
+### Logging In
+![Logging In][login-screenshot]
+
+...more...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -170,12 +163,11 @@ Project Link: [Next Auth Implementation](https://github.com/tonyb650/next_auth_i
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [So many YouTubers :)](https://youtube.com/)
+* [Code With Antonio](https://www.youtube.com/watch?v=1MTyCvS05V4/)
+* [ShadCN](https://ui.shadcn.com/)
 * [Best Readme Template](https://github.com/othneildrew/Best-README-Template)
 * [Choose an Open Source License](https://choosealicense.com)
 * [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -189,6 +181,7 @@ Project Link: [Next Auth Implementation](https://github.com/tonyb650/next_auth_i
 [search-events-animation]: z_readme_assets/search-events.gif
 [event-chat-animation]: z_readme_assets/event-chat.gif
 [event-details-animation]: z_readme_assets/event-details.gif
+[login-screenshot]: public/readme/next-auth-screenshot.png
 
 [event-details-screenshot]: z_readme_assets/event-details-screenshot.png
 [user-login-screenshot]: z_readme_assets/user-login-screenshot.png
@@ -197,14 +190,17 @@ Project Link: [Next Auth Implementation](https://github.com/tonyb650/next_auth_i
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/tony-brierly
 
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
+[Next.js]: https://img.shields.io/badge/Nextjs-000000?style=for-the-badge&logo=next.js&logoColor=ffffff
+[Nextjs-url]: https://nextjs.org/
+
+[Auth.js]: https://img.shields.io/badge/Authjs-7c3aed?style=for-the-badge&logo=authjs&logoColor=ffffff
+[Authjs-url]: https://auth.js/
 
 [TailwindCSS.com]: https://img.shields.io/badge/tailwindcss-041f30?style=for-the-badge&logo=tailwindcss&logoColor=00bcff
 [Tailwind-url]: https://tailwindcss.com
 
-[ExpressJS.com]: https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white
-[Express-url]: https://expressjs.com/
+[PostgreSQL.com]: https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white
+[PostgreSQL-url]: https://postgresql.org/
 
-[MongoDB.com]: https://img.shields.io/badge/MongoDB-021e2b?style=for-the-badge&logo=mongodb&logoColor=00684a
-[Mongo-url]: https://mongodb.com/
+[Neon.com]: https://img.shields.io/badge/Neon-02e599?style=for-the-badge
+[Neon-url]: https://neon.com/

@@ -50,7 +50,7 @@ export const LoginForm = () => {
         if (data.twoFactor) {
           setShowTwoFactor(true)
         } 
-      } catch (error) {
+      } catch {
         setError("Network error.")
       }
     })
