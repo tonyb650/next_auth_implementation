@@ -45,6 +45,44 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+This is closely based on a code-along YouTube video by the excellent *Code With Antonio*:
+<a href="https://www.youtube.com/watch?v=1MTyCvS05V4"><strong>Next Auth V5 - Advanced Guide</strong></a>
+
+
+Antonio lists the features here:
+- 🔐 Next-auth v5 (Auth.js)
+- 🚀 Next.js 14 with server actions
+- 🔑 Credentials Provider
+- 🌐 OAuth Provider (Social login with Google & GitHub)
+- 🔒 Forgot password functionality
+- ✉️ Email verification
+- 📱 Two factor verification (2FA)
+- 👥 User roles (Admin & User)
+- 🔓 Login component (Opens in redirect or modal)
+- 📝 Register component
+- 🤔 Forgot password component
+- ✅ Verification component
+- ⚠️ Error component
+- 🔘 Login button
+- 🚪 Logout button
+- 🚧 Role Gate
+- 🔍 Exploring next.js middleware
+- 📈 Extending & Exploring next-auth session
+- 🔄 Exploring next-auth callbacks
+- 👤 useCurrentUser hook
+- 🛂 useRole hook
+- 🧑 currentUser utility
+- 👮 currentRole utility
+- 🖥️ Example with server component
+- 💻 Example with client component
+- 👑 Render content for admins using RoleGate component
+- 🛡️ Protect API Routes for admins only
+- 🔐 Protect Server Actions for admins only
+- 📧 Change email with new verification in Settings page
+- 🔑 Change password with old password confirmation in Settings page
+- 🔔 Enable/disable two-factor auth in Settings page
+- 🔄 Change user role in Settings page (for development purposes only)
+
 
 ![Login screenshot][login-screenshot]
 
@@ -70,15 +108,21 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-**NOTE**: *This project is not complete and served strictly as group learning project.*\
+**NOTE**: *This project is strictly a learning project.*
+
 To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
-Node and NPM are required.
+1. Node and NPM are required.
   ```sh
   npm install npm@latest -g
   ```
+2. Resend API key for email sending service <a href="https://resend.com">Resend</a>
+3. Set up of project for Google OAuth integration <a href="https://console.cloud.google.com">Google</a>
+4. Set up of project for GitHub OAuth integration <a href="https://github.com">GitHub</a> > Settings > Developer Settings
+5. Database for project at <a href="https://neon.tec">Neon</a> 
+
 
 ### Installation
 
@@ -88,30 +132,41 @@ Node and NPM are required.
    ```sh
    git clone https://github.com/tonyb650/next_auth_implementation.git
    ```
-2. Install NPM packages for `server` and `client` folders
+2. Install NPM packages
    ```sh
    npm install
    ```
-3. Create database with Mongo Community Edition or MongoDB Atlas
-4. Create `server/.env` file and populate with environment variables
+3. Create `.env` file and populate with environment variables
    ```json
-    ACCESS_TOKEN_SECRET="random_string_of_characters"
-    REFRESH_TOKEN_SECRET="random_string_of_characters"
-    MONGO_USERNAME="username"
-    MONGO_PASSWORD="password"
-    SERVER_PORT=8000
+    # Database
+    DATABASE_URL=postgres_url
+
+    # Next Auth
+    AUTH_SECRET=auth_secret
+
+    # Github OAuth
+    GITHUB_CLIENT_ID=OAuth_client_id
+    GITHUB_CLIENT_SECRET=oauth_client_secret
+
+    # Google OAuth
+    GOOGLE_CLIENT_ID=OAuth_client_id
+    GOOGLE_CLIENT_SECRET=oauth_client_secret
+
+    # Email service
+    RESEND_API_KEY=api_key_here
+
+    # Environment
+    NODE_ENV="development|production"
    ```
-5. Create `client/.env` file and populate with environment OpenWeatherMap API key
-    ```json
-    VITE_REACT_APP_API_KEY="your_open_weather_map_api_key"
-    ```
-6. Update the DB connection string in `server/config/mongoDB.config.ts` to reflect the MongoDB you are connecting to.
 7. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
-8. Run scripts `npm run dev` for both server and client apps.
+    ```sh
+    git remote set-url origin github_username/repo_name
+    git remote -v # confirm the changes
+    ```
+8. Start application:
+    ```sh
+    npm run dev
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,7 +178,7 @@ Node and NPM are required.
 ### Logging In
 ![Logging In][login-screenshot]
 
-...more...
+...more coming soon...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -176,11 +231,7 @@ Project Link: [Next Auth Implementation](https://github.com/tonyb650/next_auth_i
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[join-event-animation]: z_readme_assets/join_event.gif
-[add-event-animation]: z_readme_assets/add-event.gif
-[search-events-animation]: z_readme_assets/search-events.gif
-[event-chat-animation]: z_readme_assets/event-chat.gif
-[event-details-animation]: z_readme_assets/event-details.gif
+
 [login-screenshot]: public/readme/next-auth-screenshot.png
 
 [event-details-screenshot]: z_readme_assets/event-details-screenshot.png
