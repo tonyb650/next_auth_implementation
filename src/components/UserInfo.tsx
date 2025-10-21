@@ -1,4 +1,3 @@
-import { User } from "@/generated/prisma";
 import { ExtendedUser } from "@/types/next-auth";
 import React from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";

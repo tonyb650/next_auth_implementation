@@ -17,7 +17,7 @@ const SettingsPage = () => {
 
       <SignOutButton>
         <Button>
-          Sign Out
+          Sign Out {user?.name}
         </Button>
       </SignOutButton>
     </div>
