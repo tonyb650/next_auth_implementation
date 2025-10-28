@@ -4,6 +4,7 @@ import authConfig from "./auth.config";
 import prisma from "./lib/prisma";
 import { getUserById } from "./services/user";
 import { getTwoFactorConfirmationByUserId } from "@/services/two-factor-confirmation";
+import { getAccountByUserId } from "./services/account";
 
 
 const config: NextAuthConfig = {
@@ -39,10 +40,15 @@ const config: NextAuthConfig = {
       return true
     },
     async jwt({token}) {
-
       if (!token.sub) return token
       const existingUser = await getUserById(token.sub)
       if (!existingUser) return token
+
+      const existingAccount = await getAccountByUserId(existingUser.id)
+      token.isOAuth = !!existingAccount
+      
+      token.name = existingUser.name
+      token.email = existingUser.email
       token.role = existingUser.role as "ADMIN" | "USER"
       token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled
       return token
@@ -56,7 +62,10 @@ const config: NextAuthConfig = {
         session.user.role = token.role  as "ADMIN" | "USER"
       }
       if(session.user) {
-        session.user.isTwoFactorEnabled = !!token.isTwoFactorEnabled
+        session.user.name = token.name
+        session.user.email = token.email || session.user.email
+        session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean
+        session.user.isOAuth = token.isOAuth as boolean
       }
       // console.log(session)
       return session
